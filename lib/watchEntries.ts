@@ -8,8 +8,7 @@ export default async function watchEntries(entries: Entry[]) {
   for (const entry of entries) {
     contexts.push(await esbuild.context({
       ...baseConfig,
-      entryPoints: entry.entryPoints,
-      outdir: entry.outdir,
+      ...entry
     }));
   }
 
