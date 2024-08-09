@@ -1,10 +1,9 @@
 import { sassPlugin } from "esbuild-sass-plugin";
 import postcss, { AcceptedPlugin } from "postcss";
-import { globSync } from "glob";
 
 interface Props {
   postcssPlugins?: AcceptedPlugin[];
-  watchPatterns?: string[];
+  watchFiles?: string[];
 }
 
 /**
@@ -30,12 +29,7 @@ export default function (props?: Props) {
       const result: Record<string, any> = {
         loader: "css",
         contents: css,
-      }
-
-      if (props?.watchPatterns) {
-        result.watchFiles = props.watchPatterns.map((pattern) => {
-          return globSync(pattern, { ignore: "node_modules/**" });
-        })
+        watchFiles: props?.watchFiles
       }
 
       return result;

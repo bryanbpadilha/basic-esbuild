@@ -13,7 +13,6 @@
   "devDependencies": {
     "esbuild": "^0.23.0",
     "esbuild-sass-plugin": "^3.3.1",
-    "glob": "^11.0.0",
     "postcss": "^8.4.41",
     "tsx": "^4.16.5"
   }
